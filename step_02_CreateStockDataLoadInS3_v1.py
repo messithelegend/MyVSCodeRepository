@@ -3,7 +3,7 @@ import numpy as np
 from faker import Faker
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
-from ReadAccessKey import get_aws_keys  # Import the function to get AWS keys
+from step_01_ReadAccessKey import get_aws_keys  # Import the function to get AWS keys
 
 # Get the AWS keys from the CSV file
 access_key, secret_key = get_aws_keys('PatAITesting_accessKeys.csv')

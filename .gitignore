@@ -1,3 +1,35 @@
-#Ignore excel files
+# -- python cache and build --
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# -- virtual environments --
+.env
+.venv
+env/
+venv/
+
+# -- OS Specific junks --
+.DS_Store
+Thumbs.db
+
+# -- Archives/Binaries --
+*.zip
+*.tar.gz
+*.tar.bz2
+*.gz
+*.7z
+# -- Data/logs/temps --
+*.log
+*.tmp   
+
+# -- Project specific , add my own files here --
+aws/
 *.xlsx
 PatAITesting_accessKeys.csv
+bedrock_model_list.csv
+bedrock_model_list_old.csv
