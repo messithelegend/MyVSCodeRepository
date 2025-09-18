@@ -33,3 +33,4 @@ aws/
 PatAITesting_accessKeys.csv
 bedrock_model_list.csv
 bedrock_model_list_old.csv
+.~lock.*#
