@@ -57,7 +57,7 @@ def interactive_csv_agent(df):
     print("Execution Result:\n", result) 
 
     # Step 5: Ask LLM to interpret the result
-    summary_prompt = f"Answer: {result}\nAnswer in 1 sentence.\nJust format the input as a concise summary.No other text"
+    summary_prompt = f"Answer: {result}\nAnswer in 1 sentence."
     answer = llm.invoke(summary_prompt).content.strip()
     print("Summary answer:\n", answer)
     return answer
