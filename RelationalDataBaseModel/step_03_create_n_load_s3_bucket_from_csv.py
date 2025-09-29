@@ -62,14 +62,14 @@ if __name__ == "__main__":
 
     # Step 2: Upload the CSV file to the S3 bucket
     CSV_FILE_NAME = 'RelationalDataBaseModel/Accounts.csv'  # Replace with your CSV file path
-    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "Accounts.csv")
+    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "accounts/Accounts.csv")
 
     CSV_FILE_NAME = 'RelationalDataBaseModel/Customers.csv'  # Replace with your CSV file path
-    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "Customers.csv") 
+    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "customers/Customers.csv") 
 
     CSV_FILE_NAME = 'RelationalDataBaseModel/Loans.csv'  # Replace with your CSV file path
-    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "Loans.csv")
+    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "loans/Loans.csv")
     
     CSV_FILE_NAME = 'RelationalDataBaseModel/Transactions.csv'  # Replace with your CSV file path
-    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "Transactions.csv")
+    upload_to_s3(CSV_FILE_NAME, BUCKET_NAME, "transactions/Transactions.csv")
 
