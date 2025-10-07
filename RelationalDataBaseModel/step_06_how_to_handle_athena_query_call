@@ -1,0 +1,43 @@
+### This program would test and understand how to handle Athena query call and its response.
+import awswrangler as wr  ### For interacting with AWS services
+import pandas as pd
+import numpy as np
+import boto3  ### For interacting with AWS services
+from botocore.exceptions import NoCredentialsError, ClientError
+from step_01_ReadAccessKey import get_aws_keys  # Import the function to get AWS keys
+
+access_key, secret_key = get_aws_keys('PatAITesting_accessKeys.csv')
+
+## Configure the databases as in aethna
+DATABASE = "relational_database_1_csv_for_metadata"
+TABLES = ["accounts", "customers", "loans", "transactions"]
+OUTPUT_FILE = "auto_catalog.json"
+ATHENA_OUTPUT = "s3://pat-relational-database-bucket-1/athena-results/"
+REGION = "us-east-1"
+
+# Initialize the athena helper client
+session = boto3.Session(aws_access_key_id=access_key,
+                      aws_secret_access_key=secret_key,
+                      region_name=REGION)
+
+
+def run_athena_query(query, database=DATABASE, session=session, output_location=ATHENA_OUTPUT):
+    """Execute any Athena query and return the results as a pandas DataFrame."""
+    try:
+        # Execute the query
+        df = wr.athena.read_sql_query(sql=query,
+                                      database=database,
+                                      ctas_approach=False,
+##                                      s3_output=output_location,
+                                      boto3_session=session)
+        return df
+    except (NoCredentialsError, ClientError) as e:
+        print(f"Error executing query: {e}")
+        return pd.DataFrame()  # Return an empty DataFrame in case of error
+
+
+if __name__ == "__main__":
+##    df=run_athena_query("DESCRIBE relational_database_1_csv_for_metadata.customers")
+    df = run_athena_query("SELECT * FROM relational_database_1_csv_for_metadata.customers limit 5")
+    print(f'dataframe is: ', df)
+    
