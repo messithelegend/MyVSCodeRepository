@@ -26,7 +26,8 @@ Thumbs.db
 # -- Data/logs/temps --
 *.log
 *.tmp   
-
+*.odt
+*.csv
 # -- Project specific , add my own files here --
 aws/
 *.xlsx
